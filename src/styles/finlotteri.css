@@ -1,0 +1,114 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+a {
+    color: #003366;
+}
+
+body {
+    background-image:url('../images/bgr.jpg');
+    font-family: Palatino;
+    line-height: 1.4;
+    color: black;
+}
+
+#menu h1 {
+    margin-top: 10pt;
+    font-size: 26pt;
+}
+
+#main-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+#winnerimg {
+    display: block;
+    height: 200px;
+}
+
+#winnerimg img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+}
+
+#contestents ul {
+    margin-top: 10pt;
+    list-style: none;
+}
+
+#contestents ul li {
+    display: inline-block;
+    margin: 5pt;
+    background: white;
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1pt;
+    
+    padding: 0px 15px 0px 15px;
+}
+
+#contestents ul li:hover {
+    background: #D5E5F7;
+    cursor: pointer;
+}
+
+#names {
+    height: 100px;
+    background: white;
+    
+    text-align: center;
+    
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1pt;
+    overflow: hidden;
+}
+
+#names span {
+    line-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    font-size: 36pt;
+    font-style: bold;
+}
+
+#deltagere h1 {
+    margin-top: 10pt;
+    font-size: 18pt;
+}
+
+#contestents {
+    overflow: hidden;
+}
+
+#addContestant {
+    display: block;
+    margin-top:10pt;
+    overflow: hidden;
+}

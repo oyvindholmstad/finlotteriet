@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+	<title>Lotteriet</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Øyvind Holmstad">
+	<link href="styles/finlotteri.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script type="text/javascript" src="script/finlotteri.js"></script>
+</head>
+
+<body>
+
+<audio id="audiotag1" src="sounds/startup.mp3" preload="auto"></audio>
+<audio id="audiotag2" src="sounds/ch.mp3" preload="auto"></audio>
+
+<div id="main-wrapper">
+	<div id="menu">
+		<h1>Finlotteriet</h1>
+	</div>
+		
+	<div id="trekning">
+		<div id="winnerimg">
+			<img src="images/Winner.gif"></img>
+		</div>
+		<div id="names">
+			<span id="name"></span>
+		</div>
+		<div id="buttons">
+			<button id="drawButton">Trekk vinner!</button>
+			<button id="acceptButton">Aksepter vinner!</button>
+		</div>
+	</div>
+	
+	<div id="deltagere">
+		<h1>Deltagere:</h1>
+		<div id="contestents">
+			<ul>
+
+			</ul>
+		</div>
+		<div id="addContestent">
+			<input id="newName" type="text"/>
+			<button id="addButton">Legg til</button>
+		</div>
+	</div>
+	
+</div>
+
+</body>
+</html>
