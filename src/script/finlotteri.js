@@ -1,7 +1,6 @@
 // Constants
 var CONTESTANTS_URL = "data/contestants.csv";
 
-
 // Global variables
 var contestants=[];
 var numContestants = 0;
@@ -16,12 +15,15 @@ var currentGrowth = 15;
 var spins = 20;
 var count = 0;
 
+var clickSound = new Audio("sounds/ch.mp3");
+
 // On load
 $(document).ready(function() {
 	
 	function playSound()
 	{
-		document.getElementById('audiotag2').play();
+		clickSound.currentTime = 0;
+		clickSound.play();
 	}
 	
 	function playWinnerSound()
