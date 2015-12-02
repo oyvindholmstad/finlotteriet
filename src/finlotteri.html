@@ -16,37 +16,40 @@
 
 <audio id="audiotag1" src="sounds/startup.mp3" preload="auto"></audio>
 
-<div id="main-wrapper">
-	<div id="menu">
-		<h1>Finlotteriet</h1>
-	</div>
+<div class="background-image"></div>
+<div class="content">
+	<div id="main-wrapper">
+		<div id="menu">
+			<h1>Finlotteriet</h1>
+		</div>
+			
+		<div id="trekning">
+			<div id="winnerimg">
+				<img src="images/Winner.gif"></img>
+			</div>
+			<div id="names">
+				<span id="name"></span>
+			</div>
+			<div id="buttons">
+				<button id="drawButton">Trekk vinner!</button>
+				<button id="acceptButton">Aksepter vinner!</button>
+			</div>
+		</div>
 		
-	<div id="trekning">
-		<div id="winnerimg">
-			<img src="images/Winner.gif"></img>
-		</div>
-		<div id="names">
-			<span id="name"></span>
-		</div>
-		<div id="buttons">
-			<button id="drawButton">Trekk vinner!</button>
-			<button id="acceptButton">Aksepter vinner!</button>
-		</div>
-	</div>
-	
-	<div id="deltagere">
-		<h1>Deltagere:</h1>
-		<div id="contestents">
-			<ul>
+		<div id="deltagere">
+			<h1>Deltagere:</h1>
+			<div id="contestents">
+				<ul>
 
-			</ul>
+				</ul>
+			</div>
+			<div id="addContestent">
+				<input id="newName" type="text"/>
+				<button id="addButton">Legg til</button>
+			</div>
 		</div>
-		<div id="addContestent">
-			<input id="newName" type="text"/>
-			<button id="addButton">Legg til</button>
-		</div>
+		
 	</div>
-	
 </div>
 
 </body>
