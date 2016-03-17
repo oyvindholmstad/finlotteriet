@@ -9,9 +9,11 @@ var currentDrawnNameIdx = 0;
 var shuffledContestantArray=[];
 
 var intervalVar;
+var progressBarVar;
 var currentInterval = 50;
 var currentGrowth = 15;
 
+var stopRequested = false;
 var spins = 20;
 var count = 0;
 
@@ -36,8 +38,17 @@ $(document).ready(function() {
 	function clickDrawWinner() {
 		resetVariables();
 		$("#drawButton").attr("disabled", true);
+		$("#startSlowdownButton").attr("disabled", false);
+		$("#startSlowdownButton").show();
+		$("#startSlowdownButton").focus();
+		$("#acceptButton").hide();
 		intervalVar = setInterval(next, currentInterval);
 		$("#deltagere").fadeOut();				
+	}
+	
+	function clickStartSlowdown() {
+		stopRequested = true;
+		$("#startSlowdownButton").attr("disabled", true);
 	}
 	
 	function clickAdd() {
@@ -52,7 +63,6 @@ $(document).ready(function() {
 		removeContestant(contestants[currentDrawnNameIdx])
 		$("#acceptButton").hide();
 		$("#drawButton").focus();
-		
 	}			
 	
 	function clickName(obj) {
@@ -128,11 +138,12 @@ $(document).ready(function() {
 		
 		numContestants = contestants.length;
 		
+		stopRequested = false;
 		currentInterval = 50;
 		currentGrowth = 15;
 
-		var randomNumber = Math.floor(Math.random()*100)
-		spins = 27 + randomNumber;
+		var randomNumber = Math.floor(Math.random()*10)
+		spins = 5 + randomNumber;
 		count = 0;
 		
 		$("#winnerimg img").hide();				
@@ -142,9 +153,11 @@ $(document).ready(function() {
 	
 	function next() {	
 		setNextName();
-					
+		
+		if(!stopRequested)
+			return;
 		if (count < spins) 
-			count++;
+			 count++;
 		else 
 			currentInterval = currentInterval+currentGrowth;
 		
@@ -159,6 +172,7 @@ $(document).ready(function() {
 			$("#name").css("color", "navy");
 			$("#winnerimg img").show();
 			$("#drawButton").attr("disabled", false);	
+			$("#startSlowdownButton").hide();
 			$("#acceptButton").show();	
 			$("#acceptButton").focus();
 			$("#deltagere").fadeIn();
@@ -186,6 +200,7 @@ $(document).ready(function() {
 	
 	// Add listeners
 	$("#drawButton").click(clickDrawWinner);
+	$("#startSlowdownButton").click(clickStartSlowdown);
 	$("#acceptButton").click(clickAcceptWinner);
 	$("#addButton").click(clickAdd);
 	
@@ -198,6 +213,7 @@ $(document).ready(function() {
 	// Initialize page elements
 	$("#winnerimg img").hide();
 	$("#acceptButton").hide();
+	$("#startSlowdownButton").hide();
 	$("#newName").focus();
 	$("#drawButton").attr("disabled", true);
 	
