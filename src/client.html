@@ -1,0 +1,62 @@
+<html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src=http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js></script>
+<script src="/socket.io/socket.io.js"></script>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+<meta name=viewport content='width=400'>
+<script>
+	var socket = io();
+	var readyForStop = false;
+	
+	function ClickEvent()
+	{
+		if(readyForStop)
+		{
+			$('body').css('background-color', 'GREEN');
+			$('#m').text('Stopp sendt');
+		}
+	}
+	
+	socket.on('initiate', function(){
+		$('body').css('background-color', 'RED');
+		$('#m').text('Trykk for å stoppe');
+		readyForStop = true;
+	});
+	
+	$(document).ready(function() {		
+		$('body').css('background-color', '#3366ff');
+		$('.clickable').click(function(){ClickEvent(); return false;});
+		
+	});
+</script>
+<style>
+#content h1 {
+	left: 0;
+    line-height: 100px;
+    margin: auto;
+    margin-top: -50px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+	color: #000000;
+	font-family: Trebuchet MS;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	background: #FFFFFF;
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: none;
+	user-select: none;
+}
+</style>
+</head>
+<body class='clickable'>
+	<div id='content' class='clickable'>
+		<h1 id='m' class='clickable'>Vent</h1>
+	<div>
+</body>
+</html>
