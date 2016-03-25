@@ -10,6 +10,10 @@
 	<link href="styles/finlotteri.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	<script type="text/javascript" src="script/finlotteri.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io();
+	</script>
 </head>
 
 <body>
@@ -21,6 +25,7 @@
 	<div id="main-wrapper">
 		<div id="menu">
 			<h1>Finlotteriet</h1>
+			<h2>Clients: </h2><span id='clients'></span> 
 		</div>
 			
 		<div id="trekning">

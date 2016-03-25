@@ -17,10 +17,16 @@ var stopRequested = false;
 var spins = 20;
 var count = 0;
 
+var numberOfClients = 0;
+var numberOfClientsWantsToStop = 0;
+
 var clickSound = new Audio("sounds/ch.mp3");
 
 // On load
-$(document).ready(function() {
+$(document).ready(function() {	
+	socket.on('clientsWantsToStop', function(){
+			$("#startSlowdownButton").click();
+	});
 	
 	function playSound()
 	{
@@ -37,6 +43,7 @@ $(document).ready(function() {
 	
 	function clickDrawWinner() {
 		resetVariables();
+		socket.emit('initiate');
 		$("#drawButton").attr("disabled", true);
 		$("#startSlowdownButton").attr("disabled", false);
 		$("#startSlowdownButton").show();
@@ -219,4 +226,6 @@ $(document).ready(function() {
 	
 	getDefaultContestants();
 	getPreSelectedWinner();
+	
+	socket.emit('newConnection', 'presenter');
 });	
