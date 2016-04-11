@@ -1,22 +1,14 @@
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+@font-face {
+	font-family: "retro";
+	src: url("SFPixelate.ttf");
+}
+
+* {
 	margin: 0;
 	padding: 0;
-	border: 0;
 	font-size: 100%;
-	font: inherit;
+	font-family: "retro";
 	vertical-align: baseline;
 }
 
@@ -24,7 +16,11 @@ a {
     color: #003366;
 }
 
-.background-image {
+button, input {
+	padding: 5px;
+}
+
+#background {
   position: fixed;
   left: 0;
   right: 0;
@@ -87,12 +83,12 @@ body {
 
 #contestents ul li {
     display: inline-block;
-    margin: 5pt;
+    margin: 2px;
     background: white;
     border-radius: 5px;
     border-color: black;
     border-style: solid;
-    border-width: 1pt;
+    border-width: 2px;
     
     padding: 0px 15px 0px 15px;
 }
@@ -105,13 +101,13 @@ body {
 #names {
     height: 100px;
     background: white;
-    
+    margin-bottom: 10px;
     text-align: center;
     
     border-radius: 10px;
     border-color: black;
     border-style: solid;
-    border-width: 1pt;
+    border-width: 2px;
     overflow: hidden;
 }
 
@@ -135,7 +131,7 @@ body {
 
 #addContestant {
     display: block;
-    margin-top:10pt;
+    margin-top: 10px;
     overflow: hidden;
 }
 
