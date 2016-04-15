@@ -1,5 +1,6 @@
 // Constants
 var CONTESTANTS_URL = "data/contestants.csv";
+var CONFIG_URL = "data/config.json";
 
 // Global variables
 var contestants=[];
@@ -110,6 +111,13 @@ $(document).ready(function() {
 		if (contestants.length < 1)
 			$("#drawButton").attr("disabled", true);
 		
+	}
+	
+	function loadConfig() {
+		$.getJSON(CONFIG_URL, function(data) {
+			$("h1").text(data.LotteryTitle);
+			$("#background").css("background-image", "url(../images/" + data.ThemeImageFile + ")");
+		});
 	}
 	
 	function getDefaultContestants() {
@@ -224,6 +232,7 @@ $(document).ready(function() {
 	$("#newName").focus();
 	$("#drawButton").attr("disabled", true);
 	
+	loadConfig();
 	getDefaultContestants();
 	getPreSelectedWinner();
 	
