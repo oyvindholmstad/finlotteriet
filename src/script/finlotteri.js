@@ -29,8 +29,18 @@ $(document).ready(function() {
 			$("#startSlowdownButton").click();
 	});
 	
+	socket.on('clientRequestedStop', function(username){
+		$("li").each(function(data){
+			if($(this).text() == username)
+				$(this).css('background-color', 'GREEN')
+		})
+	});
+	
 	socket.on('userConnected', function(username){
-		$("#contestents ul").find('username').css("background-color", "green");
+		$("li").each(function(data){
+			if($(this).text() == username)
+				$(this).css('background-color', '#3366ff')
+		})
 	});
 	
 	function playSound()
@@ -55,7 +65,7 @@ $(document).ready(function() {
 		$("#startSlowdownButton").focus();
 		$("#acceptButton").hide();
 		intervalVar = setInterval(next, currentInterval);
-		$("#deltagere").fadeOut();				
+		$("#addContestant").fadeOut();				
 	}
 	
 	function clickStartSlowdown() {
@@ -194,7 +204,7 @@ $(document).ready(function() {
 			$("#startSlowdownButton").hide();
 			$("#acceptButton").show();	
 			$("#acceptButton").focus();
-			$("#deltagere").fadeIn();
+			$("#addContestant").fadeIn();
 			playWinnerSound();
 		}
 	}
@@ -216,7 +226,6 @@ $(document).ready(function() {
 		// TODO: Implement cheat
 	}
 
-	
 	// Add listeners
 	$("#drawButton").click(clickDrawWinner);
 	$("#startSlowdownButton").click(clickStartSlowdown);

@@ -7,15 +7,25 @@
 <script>
 	var socket = io();
 	var readyForStop = false;
+	var username;
 	
 	function ClickEvent()
 	{
 		if(readyForStop)
 		{
-			socket.emit('clientWantsToStop');
+			socket.emit('clientWantsToStop', username);
 			$('body').css('background-color', 'GREEN');
 			$('#m').text('Stopp sendt');
 		}
+	}
+	
+	function sendUsername()
+	{
+		username = $("#username").val();
+		socket.emit('userConnected', username);
+		$('#sendUsername').hide();
+		$('#username').hide();
+		$('#m').text('Vent ' + username);
 	}
 	
 	socket.on('initiate', function(){
@@ -28,18 +38,40 @@
 		socket.emit('newConnection', 'client');
 		$('body').css('background-color', '#3366ff');
 		$('.clickable').click(function(){ClickEvent(); return false;});
+		$('#sendUsername').click(function(){sendUsername(); return false;});
+		$('#username').focus();
+		$("#sendUsername").attr("disabled", true);	
+		$("#username").keyup(
+			function(){
+				var text = $("#username").val()
+				if(text.length === 0)
+					$("#sendUsername").attr("disabled", true);
+				else
+					$("#sendUsername").attr("disabled", false);
+			});
 	});
 </script>
 <style>
+body *{
+	-webkit-appearance: none;
+	-webkit-border-radius:0; 
+	font-family: Trebuchet MS;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
 #content{
 	text-align: center;
 } 
 
-#content h1 {
+#content p {
 	left: 0;
     line-height: 100px;
     margin: auto;
-    margin-top: -50px;
+    margin-top: -70px;
     position: absolute;
     top: 50%;
     width: 100%;
@@ -48,6 +80,8 @@
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 	background: #FFFFFF;
+	font-size: 32px;
+	font-weight: bold;
 	-webkit-user-select: none; /* Chrome/Safari */        
 	-moz-user-select: none; /* Firefox */
 	-ms-user-select: none; /* IE10+ */
@@ -56,11 +90,28 @@
 	-o-user-select: none;
 	user-select: none;
 }
+
+#content input,button{
+	height: 40px;
+	font-size: 24;
+	margin-top: -20px;
+	margin-bottom: 10px;
+	outline: none;
+	padding: 3px;
+}
+
+#content input{
+    width: 50%;
+}
+
 </style>
 </head>
 <body class='clickable'>
 	<div id='content' class='clickable'>
-		<h1 id='m' class='clickable'>Vent</h1>
+		<p id='m' class='clickable'>Skriv inn loddnavn
+		<input type='text' id='username' width='100px' />
+		<button id='sendUsername'>Send</button>
+		</p>
 	<div>
 </body>
 </html>

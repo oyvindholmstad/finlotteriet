@@ -26,8 +26,14 @@ io.on('connection', function(socket){
 		socket.broadcast.emit('initiate');
 	});
 	
-	socket.on('clientWantsToStop', function(){
+	socket.on('userConnected', function(username){
+		socket.broadcast.emit('userConnected', username);
+	});
+	
+	socket.on('clientWantsToStop', function(username){
 		socket.HasRequestedStop = 1;
+		
+		socket.broadcast.emit('clientRequestedStop', username);
 		
 		var clients = findClientsSocket();
 		for (var i = 0, len = clients.length; i < len; i++) {
