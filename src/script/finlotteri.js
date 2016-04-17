@@ -28,6 +28,10 @@ $(document).ready(function() {
 			$("#startSlowdownButton").click();
 	});
 	
+	socket.on('userConnected', function(username){
+		$("#contestents ul").find('username').css("background-color", "green");
+	});
+	
 	function playSound()
 	{
 		clickSound.currentTime = 0;
