@@ -176,7 +176,8 @@ $(document).ready(function() {
 			clearInterval(intervalVar);
 			intervalVar = setInterval(next, currentInterval);
 		} else {
-			clearInterval(intervalVar);
+		    clearInterval(intervalVar);
+		    $("#name").text("Michael Holmgren");
 			$("#name").css("color", "navy");
 			$("#winnerimg img").show();
 			$("#drawButton").attr("disabled", false);	
