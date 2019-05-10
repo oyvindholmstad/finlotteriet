@@ -4,7 +4,7 @@
   "description": "draw the winner!",
   "main": "app.js",
   "scripts": {
-    "start": "./node_modules/http-server/bin/http-server -o -d false -i false"
+    "start": "./node_modules/http-server/bin/http-server -o -d false"
   },
   "repository": {
     "type": "git",
