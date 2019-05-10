@@ -118,6 +118,7 @@ $(document).ready(function() {
 			type: "GET",
 			url: CONTESTANTS_URL,
 			dataType: "text",
+			cache: false,
 			contentType: "application/x-www-form-urlencoded;charset=UTF-8",
 			success: function(data) {processDefaultContestants(data);}
 		 });

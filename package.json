@@ -1,0 +1,22 @@
+{
+  "name": "finlotteriet",
+  "version": "1.0.0",
+  "description": "draw the winner!",
+  "main": "app.js",
+  "scripts": {
+    "start": "./node_modules/http-server/bin/http-server -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oyvindholmstad/finlotteriet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oyvindholmstad/finlotteriet/issues"
+  },
+  "homepage": "https://github.com/oyvindholmstad/finlotteriet#readme",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
